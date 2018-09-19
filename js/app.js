@@ -56,7 +56,7 @@
     }
   };
   // ADD YOUR CODE HERE
-  let button = document.querySelector("button")
+    let button = document.querySelector("button")
     let search = document.querySelector("input")
 
     button.addEventListener("click", function(event) {
