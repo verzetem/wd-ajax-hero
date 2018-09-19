@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  const movies = [];
+  let movies = [];
 
   const renderMovies = function() {
     $('#listings').empty();
@@ -14,16 +14,16 @@
 
       $title.attr({
         'data-position': 'top',
-        'data-tooltip': movie.title
+        'data-tooltip': movie.Title
       });
 
-      $title.tooltip({ delay: 50 }).text(movie.title);
+      $title.tooltip({ delay: 50 }).text(movie.Title);
 
       const $poster = $('<img>').addClass('poster');
 
       $poster.attr({
-        src: movie.poster,
-        alt: `${movie.poster} Poster`
+        src: movie.Poster,
+        alt: `${movie.Poster} Poster`
       });
 
       $content.append($title, $poster);
@@ -55,6 +55,25 @@
       $('.modal-trigger').leanModal();
     }
   };
-
   // ADD YOUR CODE HERE
+  let button = document.querySelector("button")
+    let search = document.querySelector("input")
+
+    button.addEventListener("click", function(event) {
+      let sValue = search.value
+      event. preventDefault()
+      fetch("https://omdb-api.now.sh/?s=" + sValue)
+      .then((response) => response.json())
+      .then((response) => {
+      if (search.value == ""){
+        alert("Please enter a movie title.")
+      } else { 
+        for (let i = 0; i < response.Search.length; i++){
+          movies.push(response.Search[i])
+        }
+        renderMovies(movies)
+        movies = []
+       }
+      })
+    })
 })();
