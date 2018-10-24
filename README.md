@@ -1,7 +1,3 @@
-# Deployed Link
-
-https://verzetem.github.io/galvanize-personnel/
-
 # Ajax Hero
 
 In this exercise, you're tasked with extending a web application to make Ajax calls to the OMDb API and update the DOM. To get started, fork and clone this repository.
